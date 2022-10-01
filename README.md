@@ -1,8 +1,5 @@
 # challenge4
 
-# challenge3
-
-
 ## Description
 
 We were given task to make a quiz and create a countdown timer, as well as a highscore.
