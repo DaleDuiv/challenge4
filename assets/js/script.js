@@ -39,6 +39,56 @@ var span= document.querySelectorAll('span');
 var i=0;
 var score= 0;
 
+
+
+//added in timer
+function startTimer() {
+  var p_time = document.getElementById('time').innerHTML;
+  var timeArray = p_time.split(":");
+  var min = timeArray[0];
+  var sec = checkSecond((timeArray[1] - 1));
+  if (sec == 59) {
+    min = min - 1
+  }
+
+  if (min < 0) {
+    clearTimeout(timerRef)
+    alert("Time is up!")
+    return;
+  }
+
+  document.getElementById('time').innerHTML = min + ":" + sec;
+  
+  var timerRef = setTimeout(startTimer, 1000);
+}
+
+function checkSecond(seconds) {
+  if (seconds < 10 && seconds >= 0) {
+    seconds = "0" + seconds
+  };
+  if (seconds < 0) {
+    seconds = "59"
+  };
+  return seconds;
+}
+
+function wrongTimer () {
+  var x_time = document.getElementById('time').innerHTML;
+  var wrongArray = x_time.split(/[:]+/);
+  var x_min = wrongArray[0];
+  var x_sec = checkSecond((wrongArray[1]-1));
+  if(x_sec === 59) {
+    x_min = x_min - 1
+  }
+  x_sec -= 10;
+  console.log(document.getElementById('time').innerHTML);
+  console.log("sec " + x_sec);
+  document.getElementById('time').innerHTML = x_min + ":" + x_sec;
+}
+
+startTimer();
+
+
 function displayQuestion(){
   for(var a=0;a<span.length;a++){
       span[a].style.background='none';

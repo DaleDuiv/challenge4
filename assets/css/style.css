@@ -106,3 +106,8 @@ button:active{
 #answers{
   margin-top: 1rem;
 }
+#time{
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+}
